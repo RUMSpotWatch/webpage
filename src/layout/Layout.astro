@@ -7,19 +7,24 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/icon.png" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
+		<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 
-	<body>
+	<body class="flex flex-col min-h-screen">
 		<Navigation
 			transition:fade
 			transition:enter="transition duration-300 ease-in-out"
 			transition:leave="transition duration-300 ease-in-out"
-		/>
-		<main class="bg-background-color">
+		></Navigation>
+		<main class="bg-background-color flex-grow flex flex-col">
 			<slot/>
 		</main>
 		<Footer transition:persist/>

@@ -12,7 +12,7 @@
     --secondary-background: oklch(100% 0 0);
     --foreground: oklch(0% 0 0);
     --main-foreground: oklch(0% 0 0);
-    --main: oklch(78.57% 0.1422 180.36);
+    --main: #1d7264ff;
     --border: oklch(0% 0 0);
     --ring: oklch(0% 0 0);
     --overlay: oklch(0% 0 0 / 0.8);
