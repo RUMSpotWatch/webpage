@@ -1,0 +1,66 @@
+---
+---
+
+
+<div class="fr-background">
+    <div class="flex justify-between items-start h-full w-full px-6 py-8">
+        <!-- Left side - Logo and text -->
+        <div class="flex flex-col w-max-1/3">
+            <!-- Logo placeholder - replace with actual logo -->
+            <div class="logo-placeholder">
+                <a href="/" class="ft-text text-lg font-bold italic">RUMSpotWatch</a>
+            </div>
+            <!-- Text below logo -->
+            <p class="ft-text text-sm max-w-[175px] font-thin">
+                Improving campus parking experiences.
+            </p>
+        </div>
+        
+        <!-- Right side - Navigation links -->
+         <div class="flex flex-col">
+            <h3 class="ft-text font-semibold italic">Quick Links</h3>
+            <div class="flex flex-row space-x-8">
+                <div class="flex flex-col space-y-4">
+                    <ul class="flex flex-col space-y-2">
+                        <li><a href="/" class="ft-text hover:opacity-80 text-sm font-thin">Project</a></li>
+                        <li><a href="/" class="ft-text hover:opacity-80 text-sm font-thin">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col space-y-4">
+                    <ul class="flex flex-col space-y-2">
+                        <li><a href="/" class="ft-text hover:opacity-80 text-sm font-thin">FaQ</a></li>
+                        <li><a href="/" class="ft-text hover:opacity-80 text-sm font-thin">Team</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+         </div>
+   
+    </div>
+</div>
+
+<style>
+    .ft-text {
+        color: var(--accent-color);
+        font-family: "Geologica", sans-serif;
+    }
+    .fr-background {
+        background-color: var(--primary-color);
+        min-height: 120px;
+        max-height: 200px;
+    }
+    .logo-placeholder {
+
+    }
+    
+    /* Responsive styles for mobile */
+    @media screen and (max-width: 768px) {
+        .fr-background div {
+            /* flex-direction: column;
+            space-y: 1.5rem;
+            text-align: center; */
+        }
+    }
+</style>

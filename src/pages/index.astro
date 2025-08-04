@@ -1,16 +1,48 @@
 ---
-
+import Layout from "../layout/Layout.astro";
+import { Button } from '@/components/ui/button'
+import {Image} from 'astro:assets';
+import sw_logo from '@/assets/SW_Logo.png';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>RUMSpotWatch</title>
-	</head>
-	<body>
-		<h1>RUMSpotWatch</h1>
-	</body>
-</html>
+<Layout title="RUMSpotWatch">
+    <div class="flex flex-col flex-grow items-center justify-center h-full min-h-full">
+        <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 logo-responsive" />
+        <h1 class="text-2xl font-bold mb-4 header-text">Finding Parking Fast on Campus</h1>
+        <h1 class="text-xl font-bold mb-4 header-text">Coming Soon</h1>
+    </div>
+</Layout>
+
+<style>
+    .header-text {
+        font-family: "Geologica", sans-serif;
+        font-style: italic;
+    }
+
+    .logo-responsive {
+        width: 320px;
+        height: auto;
+    }
+
+    /* Mobile responsive styles */
+    @media screen and (max-width: 768px) {
+        .logo-responsive {
+            width: 250px;
+        }
+        
+        .header-text {
+            font-size: 1.25rem; /* Smaller than text-2xl */
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .logo-responsive {
+            width: 200px;
+        }
+        
+        .header-text {
+            font-size: 1rem; /* Even smaller for very small screens */
+        }
+    }
+
+</style>
