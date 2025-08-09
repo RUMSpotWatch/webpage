@@ -15,10 +15,10 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
         </div>
         
         <ol class="flex list-none p-0 m-0 items-center space-x-6 md:space-x-2 lg:space-x-12 xl:space-x-16 text-2xl md:text-lg sm:text-base sm:space-x-1">
-            <li><a href={`${baseUrl}/projects`} class={`nav-link ${currentPath === '/projects' || currentPath === '/webpage/projects' ? 'active' : ''}`}>Project</a></li>
-            <li><a href={`${baseUrl}/contact`} class={`nav-link ${currentPath === '/contact' || currentPath === '/webpage/contact' ? 'active' : ''}`}>Contact</a></li>
-            <li><a href={`${baseUrl}/faq`} class={`nav-link ${currentPath === '/faq' || currentPath === '/webpage/faq' ? 'active' : ''}`}>FaQ</a></li>
-            <li><a href={`${baseUrl}/team`} class={`nav-link ${currentPath === '/team' || currentPath === '/webpage/team' ? 'active' : ''}`}>Team</a></li>
+            <li><a href={`${baseUrl}/projects`} class={`nav-link ${currentPath.includes('/projects') ? 'active' : ''}`}>Project</a></li>
+            <li><a href={`${baseUrl}/contact`} class={`nav-link ${currentPath.includes('/contact') ? 'active' : ''}`}>Contact</a></li>
+            <li><a href={`${baseUrl}/faq`} class={`nav-link ${currentPath.includes('/faq') ? 'active' : ''}`}>FaQ</a></li>
+            <li><a href={`${baseUrl}/team`} class={`nav-link ${currentPath.includes('/team') ? 'active' : ''}`}>Team</a></li>
         </ol>
     </div>
     <div class="mobile flex px-6">
@@ -40,10 +40,10 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
                 </Button>
             </div>
             <nav class="mobile-menu-nav">
-                <a href={`${baseUrl}/projects`} class={`mobile-nav-link ${currentPath === '/projects' || currentPath === '/webpage/projects' ? 'active' : ''}`}>Project</a>
-                <a href={`${baseUrl}/contact`} class={`mobile-nav-link ${currentPath === '/contact' || currentPath === '/webpage/contact' ? 'active' : ''}`}>Contact</a>
-                <a href={`${baseUrl}/faq`} class={`mobile-nav-link ${currentPath === '/faq' || currentPath === '/webpage/faq' ? 'active' : ''}`}>FaQ</a>
-                <a href={`${baseUrl}/team`} class={`mobile-nav-link ${currentPath === '/team' || currentPath === '/webpage/team' ? 'active' : ''}`}>Team</a>
+                <a href={`${baseUrl}/projects`} class={`mobile-nav-link ${currentPath.includes('/projects') ? 'active' : ''}`}>Project</a>
+                <a href={`${baseUrl}/contact`} class={`mobile-nav-link ${currentPath.includes('/contact') ? 'active' : ''}`}>Contact</a>
+                <a href={`${baseUrl}/faq`} class={`mobile-nav-link ${currentPath.includes('/faq') ? 'active' : ''}`}>FaQ</a>
+                <a href={`${baseUrl}/team`} class={`mobile-nav-link ${currentPath.includes('/team') ? 'active' : ''}`}>Team</a>
             </nav>
         </div>
     </div>
