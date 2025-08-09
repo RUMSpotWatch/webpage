@@ -2,31 +2,49 @@
 import {Image} from 'astro:assets';
 import sw_logo from '@/assets/SW_Logo.png';
 import { Button } from '@/components/ui/button'
+
+const currentPath = Astro.url.pathname;
 ---
 
 <div class="navigation">
+    <!-- Desktop Navigation -->
     <div class="desktop flex justify-between items-center h-full w-full px-6">
-        <!-- Left side - Home (where logo will go) -->
         <div>
-            <a href="/" class="text-black hover:text-gray-700 font-medium">  <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 w-25 h-auto" /></a>
+            <a href="/" class="text-black hover:text-gray-700 font-medium">  <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 w-30 h-auto" /></a>
         </div>
         
-        <!-- Right side - Other navigation items -->
-        <ol class="flex list-none p-0 m-0 items-center space-x-6 md:space-x-8 lg:space-x-12 xl:space-x-16">
-            <li><a href="/" class="text-black hover:text-gray-700 font-medium">Project</a></li>
-            <li><a href="/" class="text-black hover:text-gray-700 font-medium">Contact</a></li>
-            <li><a href="/" class="text-black hover:text-gray-700 font-medium">FaQ</a></li>
-            <li><a href="/" class="text-black hover:text-gray-700 font-medium">Team</a></li>
+        <ol class="flex list-none p-0 m-0 items-center space-x-6 md:space-x-2 lg:space-x-12 xl:space-x-16 text-2xl md:text-lg sm:text-base sm:space-x-1">
+            <li><a href="/projects" class={`nav-link ${currentPath === '/projects' ? 'active' : ''}`}>Project</a></li>
+            <li><a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a></li>
+            <li><a href="/faq" class={`nav-link ${currentPath === '/faq' ? 'active' : ''}`}>FaQ</a></li>
+            <li><a href="/team" class={`nav-link ${currentPath === '/team' ? 'active' : ''}`}>Team</a></li>
         </ol>
     </div>
     <div class="mobile flex px-6">
         <div>
-            <a href="/" class="text-black hover:text-gray-700 font-medium">  <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 w-25 h-auto" /></a>
+            <a href="/" class="text-black hover:text-gray-700 font-medium">  <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 w-30 h-auto" /></a>
         </div>
 
-        <Button className="w-[40px] active:bg-[var(--accent-color)] transition-all duration-100">
-            <i class='bx  bx-menu-wider'  ></i> 
+        <Button id="mobile-menu-toggle" className="w-[40px] active:bg-[var(--accent-color)] transition-all duration-100">
+            <i id="menu-icon" class='bx bx-menu-wider'></i> 
         </Button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-header">
+                <Button id="mobile-menu-close" className="w-[40px] bg-transparent hover:bg-[var(--accent-color)] transition-all duration-100">
+                    <i class='bx bx-x text-white text-2xl'></i>
+                </Button>
+            </div>
+            <nav class="mobile-menu-nav">
+                <a href="/projects" class={`mobile-nav-link ${currentPath === '/projects' ? 'active' : ''}`}>Project</a>
+                <a href="/contact" class={`mobile-nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
+                <a href="/faq" class={`mobile-nav-link ${currentPath === '/faq' ? 'active' : ''}`}>FaQ</a>
+                <a href="/team" class={`mobile-nav-link ${currentPath === '/team' ? 'active' : ''}`}>Team</a>
+            </nav>
+        </div>
     </div>
 </div>
 
@@ -39,12 +57,12 @@ import { Button } from '@/components/ui/button'
         background-color: var(--accent-color);
         margin: 1rem;
         flex-grow: 1;
-        height: 70px;
-        max-height: 70px;
+        height: 80px;
+        max-height: 80px;
         border-radius: 0;
         border: 4px solid black;
         box-shadow: 8px 8px 0px black;
-        border-radius: 0.5rem;
+        border-radius: 0.5rem;;
     }
 
     .mobile {
@@ -66,19 +84,213 @@ import { Button } from '@/components/ui/button'
             "CRSV" 0,
             "SHRP" 0;
     }
+
+    .nav-link {
+        display: flex;
+        text-align: center;
+        justify-content: end;
+        color: black;
+        font-weight: 500;
+        padding: 4px 0;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        padding-left: 50px;
+        padding-right: 30px;
+    }
+
+    /* Responsive padding for nav links */
+    @media screen and (max-width: 1024px) {
+        .nav-link {
+            padding-left: 25px;
+            padding-right: 15px;
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .nav-link {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+
+    .nav-link:hover {
+        color: rgb(55, 65, 81);
+    }
+    .nav-link.active {
+        background-color: var(--secondary-color);
+        clip-path: polygon(35% 0%, 100% 0%, 90% 100%, 0% 100%);
+        color: white;
+        font-weight: bold;
+    }
+
+     .nav-link.active:hover {
+        background-color: var(--secondary-accent);
+        color: var(--secondary-color);
+    }
+
+    .nav-link:active {
+        background-color: var(--secondary-accent);
+        clip-path: polygon(35% 0%, 100% 0%, 90% 100%, 0% 100%);
+        color: var(--secondary-color);
+    }
+
     /* Responsive styles for the navigation for mobile devices */
     @media screen and (max-width: 768px) {
         .desktop {
-            display: none; /* Hide desktop navigation on mobile */
+            display: none;
         }
         .mobile {
-            display: flex; /* Show mobile navigation */
+            display: flex; 
             align-items: center;
             width: 100%;
             justify-content: space-between;
         }
     }
 
+    /* Mobile Menu Styles */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100%;
+        background-color: var(--secondary-color);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-menu-overlay.active .mobile-menu {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+        padding-top: 2rem;
+        padding-right: 2rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-nav {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 0;
+    }
+
+    .mobile-nav-link {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 24px;
+        font-family: "Geologica", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: bold;
+        font-style: italic;
+        font-variation-settings:
+            "slnt" -12,
+            "CRSV" 0,
+            "SHRP" 0;
+        color: white;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border-left: 4px solid transparent;
+        border-radius: 0.5rem;
+        margin: 4px 1.7rem;
+    }
+
+    .mobile-nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-left-color: var(--accent-color);
+        background-color: var(--secondary-accent);
+        color: var(--secondary-color);
+    }
+
+    .mobile-nav-link.active {
+        background-color: var(--accent-color);
+        color: black;
+        font-weight: bold;
+        box-shadow: 6px 6px 0px black;
+        border: 4px solid black;
+        position: relative;
+    }
+
+    .mobile-nav-link.active::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--accent-color);
+        clip-path: polygon(35% 0%, 100% 0%, 90% 100%, 0% 100%);
+        z-index: -1;
+    }
+
 
 
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function openMobileMenu() {
+            mobileMenuOverlay?.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent body scroll
+        }
+
+        function closeMobileMenu() {
+            mobileMenuOverlay?.classList.remove('active');
+            document.body.style.overflow = ''; // Restore body scroll
+        }
+
+        // Open menu
+        mobileMenuToggle?.addEventListener('click', openMobileMenu);
+
+        // Close menu
+        mobileMenuClose?.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking on overlay
+        mobileMenuOverlay?.addEventListener('click', function(e) {
+            if (e.target === mobileMenuOverlay) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on mobile nav link click
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    });
+</script>
