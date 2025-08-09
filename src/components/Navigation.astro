@@ -4,25 +4,26 @@ import sw_logo from '@/assets/SW_Logo.png';
 import { Button } from '@/components/ui/button'
 
 const currentPath = Astro.url.pathname;
+const baseUrl = import.meta.env.PROD ? '/webpage' : '';
 ---
 
 <div class="navigation">
     <!-- Desktop Navigation -->
     <div class="desktop flex justify-between items-center h-full w-full px-6">
         <div>
-            <a href="/" class="text-black hover:text-gray-700 font-medium">  <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 w-30 h-auto" /></a>
+            <a href={`${baseUrl}/`} class="text-black hover:text-gray-700 font-medium">  <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 w-30 h-auto" /></a>
         </div>
         
         <ol class="flex list-none p-0 m-0 items-center space-x-6 md:space-x-2 lg:space-x-12 xl:space-x-16 text-2xl md:text-lg sm:text-base sm:space-x-1">
-            <li><a href="/projects" class={`nav-link ${currentPath === '/projects' ? 'active' : ''}`}>Project</a></li>
-            <li><a href="/contact" class={`nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a></li>
-            <li><a href="/faq" class={`nav-link ${currentPath === '/faq' ? 'active' : ''}`}>FaQ</a></li>
-            <li><a href="/team" class={`nav-link ${currentPath === '/team' ? 'active' : ''}`}>Team</a></li>
+            <li><a href={`${baseUrl}/projects`} class={`nav-link ${currentPath === '/projects' || currentPath === '/webpage/projects' ? 'active' : ''}`}>Project</a></li>
+            <li><a href={`${baseUrl}/contact`} class={`nav-link ${currentPath === '/contact' || currentPath === '/webpage/contact' ? 'active' : ''}`}>Contact</a></li>
+            <li><a href={`${baseUrl}/faq`} class={`nav-link ${currentPath === '/faq' || currentPath === '/webpage/faq' ? 'active' : ''}`}>FaQ</a></li>
+            <li><a href={`${baseUrl}/team`} class={`nav-link ${currentPath === '/team' || currentPath === '/webpage/team' ? 'active' : ''}`}>Team</a></li>
         </ol>
     </div>
     <div class="mobile flex px-6">
         <div>
-            <a href="/" class="text-black hover:text-gray-700 font-medium">  <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 w-30 h-auto" /></a>
+            <a href={`${baseUrl}/`} class="text-black hover:text-gray-700 font-medium">  <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 w-30 h-auto" /></a>
         </div>
 
         <Button id="mobile-menu-toggle" className="w-[40px] active:bg-[var(--accent-color)] transition-all duration-100">
@@ -39,10 +40,10 @@ const currentPath = Astro.url.pathname;
                 </Button>
             </div>
             <nav class="mobile-menu-nav">
-                <a href="/projects" class={`mobile-nav-link ${currentPath === '/projects' ? 'active' : ''}`}>Project</a>
-                <a href="/contact" class={`mobile-nav-link ${currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
-                <a href="/faq" class={`mobile-nav-link ${currentPath === '/faq' ? 'active' : ''}`}>FaQ</a>
-                <a href="/team" class={`mobile-nav-link ${currentPath === '/team' ? 'active' : ''}`}>Team</a>
+                <a href={`${baseUrl}/projects`} class={`mobile-nav-link ${currentPath === '/projects' || currentPath === '/webpage/projects' ? 'active' : ''}`}>Project</a>
+                <a href={`${baseUrl}/contact`} class={`mobile-nav-link ${currentPath === '/contact' || currentPath === '/webpage/contact' ? 'active' : ''}`}>Contact</a>
+                <a href={`${baseUrl}/faq`} class={`mobile-nav-link ${currentPath === '/faq' || currentPath === '/webpage/faq' ? 'active' : ''}`}>FaQ</a>
+                <a href={`${baseUrl}/team`} class={`mobile-nav-link ${currentPath === '/team' || currentPath === '/webpage/team' ? 'active' : ''}`}>Team</a>
             </nav>
         </div>
     </div>
