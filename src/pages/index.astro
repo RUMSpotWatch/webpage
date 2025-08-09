@@ -3,9 +3,10 @@ import Layout from "../layout/Layout.astro";
 import { Button } from '@/components/ui/button'
 import {Image} from 'astro:assets';
 import sw_logo from '@/assets/SW_Logo.png';
+import bg_picture from '@/assets/parking-lot3.jpg';
 ---
 
-<Layout title="RUMSpotWatch">
+<Layout title="RUMSpotWatch" backgroundImage={bg_picture.src}>
     <div class="flex flex-col flex-grow items-center justify-center h-full min-h-full">
         <Image src={sw_logo} alt="SpotWatch Logo" class="mx-auto my-8 logo-responsive" />
         <h1 class="text-2xl font-bold mb-4 header-text">Finding Parking Fast on Campus</h1>
@@ -17,6 +18,7 @@ import sw_logo from '@/assets/SW_Logo.png';
     .header-text {
         font-family: "Geologica", sans-serif;
         font-style: italic;
+        color: var(--accent-color);
     }
 
     .logo-responsive {

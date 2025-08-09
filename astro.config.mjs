@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import react from '@astrojs/react';
 
+const baseUrl = import.meta.env.PROD ? '/webpage' : '';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -12,5 +14,5 @@ export default defineConfig({
   },
   integrations: [react()],
   site: 'https://rumspotwatch.github.io',
-  base: 'webpage',
+  base: baseUrl,
 });
