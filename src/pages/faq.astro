@@ -1,8 +1,48 @@
 ---
 import Layout from "../layout/Layout.astro";
+import FAQAccordion from "@/components/Accordion";
+
 ---
 
 <Layout title="FaQ RUMSpotWatch">
+    
+    <div class="flex flex-col items-center justify-center h-full min-h-full p-5">
+        <FAQAccordion 
+            client:load 
+            triggerText="What is the purpose of the app?"
+            contentText="The purpose of the app is to provide the students at the UPRM campus to see the availability of the parkings in the differents parkings lots."
+        />
+    </div>
 
-	
+     <div class="flex flex-col items-center justify-center h-full min-h-full p-5">
+        <FAQAccordion 
+            client:load 
+            triggerText="Where is this going to be implemented?"
+            contentText="The initial beta will be implemented to work at the ADEM parking lot in the UPRM Campus."
+        />
+    </div>
+
+    <div class="flex flex-col items-center justify-center h-full min-h-full p-5">
+        <FAQAccordion 
+            client:load 
+            triggerText="Will it be free?"
+            contentText="Yes, the application will be free to users for all users."
+        />
+    </div>
+
+    <div class="flex flex-col items-center justify-center h-full min-h-full p-5">
+        <FAQAccordion 
+            client:load 
+            triggerText="Will it work for Android and IOS?"
+            contentText="Yes, the app is designed to be cross-platform with React Native and will work seamlessly on both Android and iOS devices."
+        />
+    </div>
+  
+      <div class="flex flex-col items-center justify-center h-full min-h-full p-5">
+        <FAQAccordion 
+            client:load 
+            triggerText="Does it needs GPS?"
+            contentText="No, the app does not require GPS to function."
+        />
+    </div>
 </Layout>
