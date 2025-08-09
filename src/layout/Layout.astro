@@ -22,7 +22,7 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
 
 	<body class="flex flex-col min-h-screen">
 	
-		<main class={`bg-background-color flex-grow flex flex-col ${backgroundImage ? 'has-background-image' : ''}`} style={backgroundImage ? `background-image: url(${backgroundImage});` : ''}>
+		<main class={`bg-background-color flex-grow flex flex-col pb-5 ${backgroundImage ? 'has-background-image' : ''}`} style={backgroundImage ? `background-image: url(${backgroundImage});` : ''}>
 			<Navigation
 			transition:fade
 			transition:enter="transition duration-300 ease-in-out"
