@@ -10,6 +10,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-
-  integrations: [react()]
+  integrations: [react()],
+  site: 'https://rumspotwatch.github.io',
+  base: 'webpage',
 });
