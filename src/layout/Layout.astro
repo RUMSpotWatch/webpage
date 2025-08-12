@@ -6,7 +6,7 @@ const {
 	title, 
 	backgroundImage,   
 	description = "Improving campus parking experiences.", // Default description
-  	ogImage = '/SW_Logo.png', // Path to a default image in your /public folder
+  	ogImage = '/swlogo.png', // Path to a default image in your /public folder
 } = Astro.props;
 
 const baseUrl = import.meta.env.PROD ? '/webpage' : '';
@@ -28,11 +28,11 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
 			property="og:description"
 			content={description}
 		/>
-		<meta
-			property="og:image"
-			content={ogImage}
-    	/>
+		<meta property="og:image" content={new URL(ogImage, Astro.url.origin)} />
 		<meta property="og:type" content="website" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(ogImage, Astro.url.origin)} />
 		<title>{title}</title>
 	</head>
 
