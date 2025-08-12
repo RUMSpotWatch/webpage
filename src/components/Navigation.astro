@@ -40,6 +40,7 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
                 </Button>
             </div>
             <nav class="mobile-menu-nav">
+                <a href={`${baseUrl}/`} class={`mobile-nav-link ${currentPath === '/' || currentPath === '/webpage/' ? 'active' : ''}`}>Home</a>
                 <a href={`${baseUrl}/projects`} class={`mobile-nav-link ${currentPath.includes('/projects') ? 'active' : ''}`}>Project</a>
                 <a href={`${baseUrl}/contact`} class={`mobile-nav-link ${currentPath.includes('/contact') ? 'active' : ''}`}>Contact</a>
                 <a href={`${baseUrl}/faq`} class={`mobile-nav-link ${currentPath.includes('/faq') ? 'active' : ''}`}>FaQ</a>
@@ -103,8 +104,13 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
     /* Responsive padding for nav links */
     @media screen and (max-width: 1024px) {
         .nav-link {
+
             padding-left: 25px;
             padding-right: 15px;
+        }
+
+        a {
+            font-size: 24px;
         }
     }
 
@@ -140,7 +146,7 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
     @media screen and (max-width: 768px) {
         .desktop {
             display: none;
-        }
+        }  
         .mobile {
             display: flex; 
             align-items: center;

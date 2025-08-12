@@ -1,8 +1,199 @@
 ---
 import Layout from "../layout/Layout.astro";
+import { Image } from 'astro:assets';
+import linkedinIcon from '@/assets/linkedin-svgrepo-com.svg';
+import emmanuel from '@/assets/team/Emmanuel.jpg';
+import alexandra from '@/assets/team/alexandra_camunas.jpg';
+import sebastian from '@/assets/team/sebastian_estrada.jpg';
+import ricardo from '@/assets/team/ricardo_morell.jpg';
+import samuel from '@/assets/team/samuel_hernandez.jpg';
+
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+import { Badge } from '@/components/ui/badge';
+
+
 ---
 
 <Layout title="About RUMSpotWatch">
 
-	
+    <div class="flex flex-wrap justify-center items-start max-w-screen h-full"> 
+        <Card className="m-5 max-w-80 min-w-60 card-overrides">
+            <CardHeader>
+
+                <CardTitle className="flex w-full text-lg sm:text-xl font-bold flex-row justify-between">
+                    Emmanuel González
+                    <a href="https://www.linkedin.com/in/emmanuel-gonzalez-morales22/" 
+                    target="_blank" rel="noopener noreferrer" >
+                        <Image src={linkedinIcon} alt="LinkedIn" class="icon-style rounded-md" />
+                    </a>
+                </CardTitle>
+
+                <div class="w-full flex justify-center pt-3">
+                    <Image src={emmanuel} alt="Emmanuel Gonzalez Morales" class="w-24 h-24 rounded-lg object-cover border-1 border-r-3 border-b-3 border-black " />
+                </div>
+               
+        
+            </CardHeader>
+            <CardContent className="flex justify-center">
+                <h3 class="text-lg font-semibold text-gray-700 tracking-wide">Software Engineer</h3>
+            </CardContent>
+            <CardFooter className="card-footer">
+                <Badge className="badge">Data Engineer</Badge>
+                <Badge className="badge">Mobile dev</Badge>
+                <Badge className="badge">Web dev</Badge>
+            </CardFooter>
+        </Card>
+
+
+        <Card className="m-5 max-w-80 min-w-60 card-overrides">
+            <CardHeader>
+
+                    <CardTitle className="flex w-full text-lg sm:text-xl font-bold flex-row justify-between">
+                        Samuel Hernandez
+                        <a href="https://www.linkedin.com/in/samuel-hernandez-colon-875a43201/" 
+                        target="_blank" rel="noopener noreferrer" >
+                            <Image src={linkedinIcon} alt="LinkedIn" class="icon-style rounded-md" />
+                        </a>
+                    </CardTitle>
+
+                <div class="w-full flex justify-center pt-3">
+                    <Image src={samuel} alt="Samuel Hernandez" class="w-24 h-24 rounded-lg object-cover border-1 border-r-3 border-b-3 border-black " />
+                </div>
+        
+            </CardHeader>
+            <CardContent className="flex justify-center">
+                <h3 class="text-lg font-semibold text-gray-700 tracking-wide">Computer Engineer</h3>
+            </CardContent>
+            <CardFooter className="card-footer">
+                <Badge className="badge">Place holder</Badge>
+            </CardFooter>
+        </Card>
+
+
+        <Card className="m-5 max-w-80 min-w-60 card-overrides">
+            <CardHeader>
+
+                    <CardTitle className="flex w-full text-lg sm:text-xl font-bold flex-row justify-between">
+                        Alexandra Camuñas
+                        <a href="https://www.linkedin.com/in/alexandra-i-c-191193271/" 
+                        target="_blank" rel="noopener noreferrer" >
+                            <Image src={linkedinIcon} alt="LinkedIn" class="icon-style rounded-md" />
+                        </a>
+                    </CardTitle>
+
+                <div class="w-full flex justify-center pt-3">
+                    <Image src={alexandra} alt="Alexandra Camuñas" class="w-24 h-24 rounded-lg object-cover border-1 border-r-3 border-b-3 border-black " />
+                </div>
+        
+            </CardHeader>
+            <CardContent className="flex justify-center">
+                <h3 class="text-lg font-semibold text-gray-700 tracking-wide">UX/UI Designer</h3>
+            </CardContent>
+            <CardFooter className="card-footer">
+                <Badge className="badge">Placeholder</Badge>
+            </CardFooter>
+        </Card>
+
+
+        <Card className="m-5 max-w-80 min-w-60 card-overrides">
+            <CardHeader>
+
+                    <CardTitle className="flex w-full text-lg sm:text-xl font-bold flex-row justify-between">
+                        Sebastian Estrada
+                        <a href="https://www.linkedin.com/in/estradalopezsebastian/" 
+                        target="_blank" rel="noopener noreferrer" >
+                            <Image src={linkedinIcon} alt="LinkedIn" class="icon-style rounded-md" />
+                        </a>
+                    </CardTitle>
+
+                <div class="w-full flex justify-center pt-3">
+                    <Image src={sebastian} alt="Sebastian Estrada" class="w-24 h-24 rounded-lg object-cover border-1 border-r-3 border-b-3 border-black " />
+                </div>
+        
+            </CardHeader>
+            <CardContent className="flex justify-center">
+                <h3 class="text-lg font-semibold text-gray-700 tracking-wide">Software Engineer</h3>
+            </CardContent>
+            <CardFooter className="card-footer">
+                <Badge className="badge">Place holder</Badge>
+            </CardFooter>
+        </Card>
+
+
+        <Card className="m-5 max-w-80 min-w-60 card-overrides">
+            <CardHeader>
+
+                    <CardTitle className="flex w-full text-lg sm:text-xl font-bold flex-row justify-between">
+                        Ricardo Morell
+                        <a href="https://www.linkedin.com/in/ricardo-a-morell-7831921b8/" 
+                        target="_blank" rel="noopener noreferrer" >
+                            <Image src={linkedinIcon} alt="LinkedIn" class="icon-style rounded-md" />
+                        </a>
+                    </CardTitle>
+
+                <div class="w-full flex justify-center pt-3">
+                    <Image src={ricardo} alt="Ricardo Morell" class="w-24 h-24 rounded-lg object-cover border-1 border-r-3 border-b-3 border-black " />
+                </div>
+        
+            </CardHeader>
+            <CardContent className="flex justify-center">
+                <h3 class="text-lg font-semibold text-gray-700 tracking-wide">Software Engineer</h3>
+            </CardContent>
+            <CardFooter className="card-footer">
+                <Badge className="badge">Placeholder</Badge>
+            </CardFooter>
+        </Card>
+    </div>
+
+
 </Layout>
+
+<style>
+    .icon-style {
+        width: 24px;
+        height: auto;
+        box-shadow: 5px 5px 0px black;
+    }
+
+    .icon-style:hover {
+            box-shadow: 8px 8px 0px black;
+            transform: translateY(-2px);
+            transition: all 0.2s ease-in-out;
+    }
+
+    .icon-style:active {
+            box-shadow: 2px 2px 0px black;
+            transform: translateY(2px);
+            transition: all 0.1s ease-in-out;
+    }
+    .card-overrides{
+        background-color: white;
+        width: 100%;
+        @media screen and (max-width: 640px) {
+            width: 100%;
+        }
+    }
+
+    .card-footer {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .badge{
+        border: 1px solid var(--secondary-color);
+        color: var(--secondary-color);
+        background-color: var(--secondary-accent);
+
+    }
+</style>

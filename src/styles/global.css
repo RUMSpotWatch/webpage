@@ -4,15 +4,15 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    --primary-color: #0b2823ff;
-    --secondary-color: #1d7264ff;
+    --primary-color: #0b2823;
+    --secondary-color: #15544a;
     --accent-color: #faee5fff;
     --background: rgba(29, 108, 93, 0.42);
-    --secondary-accent: oklch(95.08% 0.0481 184.07);
+    --secondary-accent: #CBF5ED;
     --secondary-background: oklch(100% 0 0);
     --foreground: oklch(0% 0 0);
     --main-foreground: oklch(0% 0 0);
-    --main: #1d7264ff;
+    --main: #15544a;
     --border: oklch(0% 0 0);
     --ring: oklch(0% 0 0);
     --overlay: oklch(0% 0 0 / 0.8);
