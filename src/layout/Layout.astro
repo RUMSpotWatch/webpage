@@ -2,14 +2,18 @@
 import Footer from '../components/Footer.astro';
 import Navigation from '../components/Navigation.astro';
 import "../styles/global.css";
+
+
+const baseUrl = import.meta.env.PROD ? '/webpage' : '';
+
 const { 
 	title, 
 	backgroundImage,   
 	description = "Improving campus parking experiences.", // Default description
-  	ogImage = '/swlogo.png', // Path to a default image in your /public folder
+  	ogImage = `${baseUrl}/swlogo.png`, // Path to a default image in your /public folder
 } = Astro.props;
 
-const baseUrl = import.meta.env.PROD ? '/webpage' : '';
+
 
 ---
 <html lang="en">
