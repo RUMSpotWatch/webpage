@@ -2,9 +2,15 @@
 import Footer from '../components/Footer.astro';
 import Navigation from '../components/Navigation.astro';
 import "../styles/global.css";
-const { title, backgroundImage } = Astro.props;
+const { 
+	title, 
+	backgroundImage,   
+	description = "Improving campus parking experiences.", // Default description
+  	ogImage = '/SW_Logo.png', // Path to a default image in your /public folder
+} = Astro.props;
 
 const baseUrl = import.meta.env.PROD ? '/webpage' : '';
+
 ---
 <html lang="en">
 	<head>
@@ -19,15 +25,14 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
 		<meta name="generator" content={Astro.generator} />
 		<meta property="og:title" content="RUMSpotWatch" />
 		<meta
-		property="og:description"
-		content="Improving campus parking experiences."
+			property="og:description"
+			content={description}
 		/>
-
 		<meta
-      	property="og:image"
-     	content=`${baseUrl}/SW_Logo.png`
+			property="og:image"
+			content={ogImage}
     	/>
-		  <meta property="og:type" content="website" />
+		<meta property="og:type" content="website" />
 		<title>{title}</title>
 	</head>
 
