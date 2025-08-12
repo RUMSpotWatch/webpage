@@ -19,7 +19,7 @@ export default function FAQAccordion({
   return (
     <Accordion type="single" collapsible className="w-full max-w-xl">
       <AccordionItem value={value}>
-        <AccordionTrigger>{triggerText}</AccordionTrigger>
+        <AccordionTrigger style={{ color: 'var(--accent-color)' }}>{triggerText}</AccordionTrigger>
         <AccordionContent>
           {contentText}
         </AccordionContent>
