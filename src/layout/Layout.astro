@@ -17,6 +17,17 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
 		<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta property="og:title" content="RUMSpotWatch" />
+		<meta
+		property="og:description"
+		content="Improving campus parking experiences."
+		/>
+
+		<meta
+      	property="og:image"
+     	content=`${baseUrl}/SW_Logo.png`
+    	/>
+		  <meta property="og:type" content="website" />
 		<title>{title}</title>
 	</head>
 
