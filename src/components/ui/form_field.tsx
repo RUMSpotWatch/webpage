@@ -25,14 +25,18 @@ const FormField: React.FC<FormFieldProps> = ({
       data-slot="form-field"
       {...props} 
     >
-      <input 
-      type={type} 
-      placeholder={placeholder}
-      value={value}
-      name={name}
-      onChange={onChange}
-      className={cn("p-2 border-3 border-solid border-black text-black rounded-md", inputClassName)}
-      />
+     <div className="flex flex-col">
+       <label htmlFor={name} className="mb-2 mt-2">
+         {placeholder}
+       </label>
+       <input
+         type={type}
+         value={value}
+         name={name}
+         onChange={onChange}
+         className={cn("p-2 border-3 border-solid border-black text-black rounded-md bg-[#FFFBE9]", inputClassName)}
+       />
+     </div>
     </div>
   );
 };

@@ -6,22 +6,20 @@ import FormField from "../components/ui/form_field";
 
 <Layout title="About RUMSpotWatch" class="flex">
   <div
-    class="flex flex-col flex-wrap items-center gap-7 border-solid border-4 m-20 p-10 w-1/2 mx-auto"
+    class="flex flex-col flex-wrap items-center gap-1 border-solid border-t-4 border-l-4 border-b-8 border-r-8 rounded-md m-20 p-10 w-1/2 mx-auto"
   >
-    <h1 class="text-2xl text-center text-truncate">
-      Have any questions or feedback? We'd Love to hear from you!
+    <h1 class="mb-5 text-2xl text-center text-truncate">
+      Have any questions or feedback? We'd love to hear from you!
     </h1>
 
-    <div
-      class="flex flex-row items center gap-5 p-2"
-    >
+    <div class="flex flex-row items center gap-5 p-2">
       <FormField
         placeholder="First Name"
         type="text"
         inputClassName="w-xs required"
         name="full_name"
       />
-        <FormField
+      <FormField
         placeholder="Last Name"
         type="text"
         inputClassName="w-xs required"
@@ -41,18 +39,20 @@ import FormField from "../components/ui/form_field";
       inputClassName="w-2xl"
       name="subject"
     />
-    <textarea
-      name="message"
-      id="message"
-      class="w-2xl p-2 h-56 border-3 border-solid border-black text-black rounded-md"
-      placeholder="Message"
-      spellcheck="true"
-      required></textarea>
-    <FormField
+    <div class="flex flex-col">
+      <label for="message" class="mb-2 mt-2"> Message </label>
+      <textarea
+        name="message"
+        id="message"
+        class="w-2xl p-2 h-32 border-3 border-solid text-black rounded-md bg-[#FFFBE9]"
+        spellcheck="true"
+        required></textarea>
+    </div>
+
+    <input
       type="submit"
       value="Submit"
-      className="w-32"
-      inputClassName="w-32 text-center hover:bg-green-500"
+      class="w-32 mt-12 text-center hover:bg-green-500 bg-orange border-3 border-solid rounded-md bg-amber-100"
     />
   </div>
 </Layout>
