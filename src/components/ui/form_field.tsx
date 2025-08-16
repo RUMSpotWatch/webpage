@@ -21,7 +21,6 @@ const FormField: React.FC<FormFieldProps> = ({
   return (
     <div
       data-slot="form-field"
-      className={cn("border-s  border-3 rounded-md", className)}
       {...props}
     >
       <input 
@@ -29,7 +28,7 @@ const FormField: React.FC<FormFieldProps> = ({
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      className={cn("p-2", inputClassName)}
+      className={cn("p-2 border-3 border-solid border-black text-black rounded-md", inputClassName)}
       />
     </div>
   );
