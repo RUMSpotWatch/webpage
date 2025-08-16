@@ -11,23 +11,40 @@ import FormField from "../components/ui/form_field";
     <h1 class="text-2xl text-center text-truncate">
       Have any questions or feedback? We'd Love to hear from you!
     </h1>
-    <FormField
-      placeholder="Full Name"
-      type="text"
-      inputClassName="w-xl required"
-      name="full_name"
-    />
+
+    <div
+      class="flex flex-row items center gap-5 p-2"
+    >
+      <FormField
+        placeholder="First Name"
+        type="text"
+        inputClassName="w-xs required"
+        name="full_name"
+      />
+        <FormField
+        placeholder="Last Name"
+        type="text"
+        inputClassName="w-xs required"
+        name="full_name"
+      />
+    </div>
+
     <FormField
       placeholder="Email address"
       type="email"
-      inputClassName="w-xl required"
+      inputClassName="w-2xl required"
       name="email"
     />
-    <FormField placeholder="Subject" type="text" inputClassName="w-xl" name="subject"/>
+    <FormField
+      placeholder="Subject"
+      type="text"
+      inputClassName="w-2xl"
+      name="subject"
+    />
     <textarea
       name="message"
       id="message"
-      class="w-xl p-2 h-56 border-3 border-solid border-black text-black rounded-md"
+      class="w-2xl p-2 h-56 border-3 border-solid border-black text-black rounded-md"
       placeholder="Message"
       spellcheck="true"
       required></textarea>
