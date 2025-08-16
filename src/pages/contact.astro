@@ -15,14 +15,22 @@ import FormField from "../components/ui/form_field";
       placeholder="Full Name"
       type="text"
       inputClassName="w-xl required"
+      name="full_name"
     />
     <FormField
       placeholder="Email address"
       type="email"
       inputClassName="w-xl required"
+      name="email"
     />
-    <FormField placeholder="Subject" type="text" inputClassName="w-xl" />
-    <FormField placeholder="Message" type="text" inputClassName="w-xl" />
+    <FormField placeholder="Subject" type="text" inputClassName="w-xl" name="subject"/>
+    <textarea
+      name="message"
+      id="message"
+      class="w-xl p-2 h-56 border-3 border-solid border-black text-black rounded-md"
+      placeholder="Message"
+      spellcheck="true"
+      required></textarea>
     <FormField
       type="submit"
       value="Submit"
