@@ -45,6 +45,7 @@
 @theme inline {
     --color-main: var(--main);
     --color-background: var(--background);
+    --color-accent: var(--accent-color);
     --color-secondary-background: var(--secondary-background);
     --color-foreground: var(--foreground);
     --color-main-foreground: var(--main-foreground);

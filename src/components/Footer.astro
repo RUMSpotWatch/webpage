@@ -18,7 +18,7 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
         </div>
         
         <!-- Right side - Navigation links -->
-         <div class="flex flex-col">
+         <div class="quick-links flex flex-col">
             <h3 class="ft-text font-semibold italic">Quick Links</h3>
             <div class="flex flex-row space-x-8">
                 <div class="flex flex-col space-y-4">
@@ -55,6 +55,7 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
     .logo-placeholder {
 
     }
+
     
     /* Responsive styles for mobile */
     @media screen and (max-width: 768px) {
@@ -62,6 +63,9 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
             /* flex-direction: column;
             space-y: 1.5rem;
             text-align: center; */
+        }
+        .quick-links {
+            display: none;
         }
     }
 </style>

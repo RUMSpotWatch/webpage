@@ -1,8 +1,239 @@
 ---
 import Layout from "../layout/Layout.astro";
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+
+
 ---
 
 <Layout title="RUMSpotWatch Project">
 
-	
+	<!-- Menu selector for project -->
+    <div class="flex pl-5 flex-1 items-center gap-x-15">
+
+        <div class="flex flex-1 max-w-30 items-center gap-8">
+            <!-- Left side - Navigation Menu -->
+            <div class="flex flex-col gap-10 bg-accent p-3 rounded-lg
+                        border-2 border-r-4 border-b-4"> 
+                <Button className="bt" data-section="project"> Project </Button>
+                <Button className="bt" data-section="problem"> Problem </Button>
+                <Button className="bt" data-section="goal"> Goal </Button>
+                <Button className="bt" data-section="solution"> Solution </Button>
+            </div>
+
+
+        </div>
+            <!-- Right side - Carousel Container -->
+        <div class="flex-1 w-full carousel-viewport">
+            <div id="carousel-container" class="carousel-container">
+                <!-- Card 1 - Project -->
+                <Card className="carousel-card w-full border-r-0 rounded-r-none bg-white" data-index="0">
+                    <CardHeader>
+                        <CardTitle>Project Overview</CardTitle>
+                        <CardDescription>Learn about our parking solution project</CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex flex-row align-center">
+                        <p class="self-center">Welcome to RUMSpotWatch! This project aims to revolutionize campus parking by providing real-time parking spot availability and smart parking solutions for students and faculty. Our innovative approach combines IoT sensors, mobile technology, and data analytics to create a seamless parking experience.</p>
+                        <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="align-top w-54 px-5"/>
+                    </CardContent>
+                </Card>
+
+                <!-- Card 2 - Problem -->
+                <Card className="carousel-card w-full border-r-0 bg-white" data-index="1">
+                    <CardHeader>
+                        <CardTitle>The Problem</CardTitle>
+                        <CardDescription>Understanding the parking challenges on campus</CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex flex-row align-center">
+                        <p class="self-center">Campus parking is a significant challenge for students and faculty. Limited parking spaces, lack of real-time availability information, and inefficient space utilization lead to frustration, wasted time, and increased traffic congestion. Students often spend 15-20 minutes searching for parking spots, causing them to be late for classes.</p>
+                        <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="align-top w-54 px-5"/>
+                    </CardContent>
+                </Card>
+
+                <!-- Card 3 - Goal -->
+                <Card className="carousel-card w-full border-r-0 bg-white" data-index="2">
+                    <CardHeader>
+                        <CardTitle>Our Goal</CardTitle>
+                        <CardDescription>What we aim to achieve with this project</CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex flex-row align-center">
+                        <p class="self-center">Our goal is to create an intelligent parking management system that provides real-time parking availability, reduces search time, optimizes space utilization, and improves the overall campus experience. We aim to reduce parking search time by 80% and increase parking efficiency by 40%.</p>
+                        <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="align-top w-54 px-5"/>
+                    </CardContent>
+                </Card>
+
+                <!-- Card 4 - Solution -->
+                <Card className="carousel-card w-full border-r-0 bg-white" data-index="3">
+                    <CardHeader>
+                        <CardTitle>The Solution</CardTitle>
+                        <CardDescription>How we're solving the parking problem</CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex flex-row align-center">
+                        <p class="self-center">RUMSpotWatch uses IoT sensors to detect parking space occupancy in real-time. Our mobile app provides live updates on available spots, allows users to reserve parking spaces, and offers navigation to the nearest available spot. The system includes predictive analytics to forecast parking patterns and optimize space allocation.</p>
+                        <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="align-top w-54 px-5"/>
+                    </CardContent>
+                </Card>
+            </div>
+        </div>
+                
+    </div>
+
+
 </Layout>
+
+<style>
+    .bt {
+        color: white;
+        font-family: "Geologica", sans-serif;
+        transition: all 0.2s ease;
+    }
+
+    .bt.active {
+        background-color: var(--secondary-color);
+        color: var(--accent-color);
+        transform: scale(1.05);
+    }
+
+    .bt:hover {
+        transform: translateY(-2px);
+    }
+
+    .carousel-viewport {
+        height: 303px; 
+        overflow: hidden;
+        position: relative;
+        border-radius: 8px;
+    }
+
+    .carousel-container {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        height: 100%;
+    }
+
+    .carousel-card {
+        flex-shrink: 0;
+        height: 300px; 
+        display: flex;
+        flex-direction: column;
+        opacity: 0.8;
+        padding-bottom: 0;
+    }
+
+    .carousel-card.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .carousel-card .card-header {
+        flex-shrink: 0;
+    }
+
+    .carousel-card .card-content {
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .carousel-card .card-footer {
+        flex-shrink: 0;
+    }
+
+    /* Smooth spring animation */
+    .carousel-container.moving {
+        transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+</style>
+
+<script>
+    // Wait for DOM to load
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.bt');
+        const carouselContainer = document.getElementById('carousel-container');
+        const carouselCards = document.querySelectorAll('.carousel-card');
+        
+        let currentIndex = 0;
+        const cardHeight = 300; // Height of each card in pixels
+
+        // Set initial state
+        if (buttons[0]) {
+            buttons[0].classList.add('active');
+        }
+        if (carouselCards[0]) {
+            carouselCards[0].classList.add('active');
+        }
+
+        // Button data mapping
+        const buttonToIndex = {
+            'project': 0,
+            'problem': 1,
+            'goal': 2,
+            'solution': 3
+        };
+
+        function moveToCard(targetIndex: number) {
+            if (targetIndex === currentIndex || !carouselContainer) return;
+
+            // Add moving class for enhanced animation
+            carouselContainer.classList.add('moving');
+            
+            // Calculate the transform value
+            const translateY = -targetIndex * cardHeight;
+            carouselContainer.style.transform = `translateY(${translateY}px)`;
+
+            // Update active card
+            carouselCards.forEach((card, index) => {
+                card.classList.toggle('active', index === targetIndex);
+            });
+
+            // Update current index
+            currentIndex = targetIndex;
+
+            // Remove moving class after animation
+            setTimeout(() => {
+                carouselContainer.classList.remove('moving');
+            }, 800);
+        }
+
+        // Add click handlers to buttons
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', function(event) {
+                const target = event.currentTarget as HTMLElement;
+                
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                if (target) {
+                    target.classList.add('active');
+                }
+
+                // Get the section and move to corresponding card
+                const section = target?.getAttribute('data-section') as string;
+                if (section && buttonToIndex.hasOwnProperty(section)) {
+                    const targetIndex = (buttonToIndex as any)[section];
+                    moveToCard(targetIndex);
+                }
+            });
+        });
+
+        // Optional: Add keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowUp' && currentIndex > 0) {
+                const newIndex = currentIndex - 1;
+                (buttons[newIndex] as HTMLElement)?.click();
+            } else if (event.key === 'ArrowDown' && currentIndex < carouselCards.length - 1) {
+                const newIndex = currentIndex + 1;
+                (buttons[newIndex] as HTMLElement)?.click();
+            }
+        });
+    });
+</script>
