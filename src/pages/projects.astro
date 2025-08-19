@@ -17,75 +17,76 @@ import {
 <Layout title="RUMSpotWatch Project">
 
 	<!-- Menu selector for project -->
-    <div class="flex pl-5 flex-1 items-center gap-x-15">
+    <div class="flex flex-1 justify-start align-top">
+        <div class="flex flex-col-reverse lg:flex-row p-5 gap-2 sm:gap-4 lg:gap-x-15 items-center self-start align-middle ">
 
-        <div class="flex flex-1 max-w-30 items-center gap-8">
-            <!-- Left side - Navigation Menu -->
-            <div class="flex flex-col gap-10 bg-accent p-3 rounded-lg
-                        border-2 border-r-4 border-b-4"> 
-                <Button className="bt" data-section="project"> Project </Button>
-                <Button className="bt" data-section="problem"> Problem </Button>
-                <Button className="bt" data-section="goal"> Goal </Button>
-                <Button className="bt" data-section="solution"> Solution </Button>
+            <div class="w-full lg:flex-1 lg:max-w-30 flex flex-col lg:items-center">
+                <!-- Left side - Navigation Menu -->
+                <div class="flex flex-row lg:flex-col gap-4 md:gap-12 bg-accent p-2 mt-3 md:mt-0 sm:p-3 rounded-lg
+                            border-2 border-r-4 border-b-4 w-full lg:w-auto justify-center lg:justify-start overflow-x-auto"> 
+                    <Button className="bt flex-shrink-0 text-xs sm:text-sm lg:text-base px-2 sm:px-4 py-1 sm:py-2" data-section="project"> Project </Button>
+                    <Button className="bt flex-shrink-0 text-xs sm:text-sm lg:text-base px-2 sm:px-4 py-1 sm:py-2" data-section="problem"> Problem </Button>
+                    <Button className="bt flex-shrink-0 text-xs sm:text-sm lg:text-base px-2 sm:px-4 py-1 sm:py-2" data-section="goal"> Goal </Button>
+                    <Button className="bt flex-shrink-0 text-xs sm:text-sm lg:text-base px-2 sm:px-4 py-1 sm:py-2" data-section="solution"> Solution </Button>
+                </div>
+
+
             </div>
+                <!-- Right side - Carousel Container -->
+            <div class="w-full lg:flex-1 carousel-viewport">
+                <div id="carousel-container" class="carousel-container">
+                    <!-- Card 1 - Project -->
+                    <Card className="carousel-card w-full border-r-0 rounded-r-none bg-white" data-index="0">
+                        <CardHeader>
+                            <CardTitle>Project Overview</CardTitle>
+                            <CardDescription>Learn about our parking solution project</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-col flex-1 sm:flex-row items-center sm:items-start gap-4">
+                            <p class="text-sm sm:text-base leading-relaxed">Welcome to RUMSpotWatch! This project aims to revolutionize campus parking by providing real-time parking spot availability and smart parking solutions for students and faculty. Our innovative approach combines IoT sensors, mobile technology, and data analytics to create a seamless parking experience.</p>
+                            <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="w-32 sm:w-40 md:w-54 flex-shrink-0"/>
+                        </CardContent>
+                    </Card>
 
+                    <!-- Card 2 - Problem -->
+                    <Card className="carousel-card w-full border-r-0 bg-white" data-index="1">
+                        <CardHeader>
+                            <CardTitle>The Problem</CardTitle>
+                            <CardDescription>Understanding the parking challenges on campus</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-col flex-1 h-full sm:flex-row items-center sm:items-start gap-4">
+                            <p class="text-sm sm:text-base leading-relaxed">Campus parking is a significant challenge for students and faculty. Limited parking spaces, lack of real-time availability information, and inefficient space utilization lead to frustration, wasted time, and increased traffic congestion. Students often spend 15-20 minutes searching for parking spots, causing them to be late for classes.</p>
+                            <img src="https://placehold.co/600x400" alt="Parking Problem" class="w-32 sm:w-40 md:w-54 flex-shrink-0"/>
+                        </CardContent>
+                    </Card>
 
-        </div>
-            <!-- Right side - Carousel Container -->
-        <div class="flex-1 w-full carousel-viewport">
-            <div id="carousel-container" class="carousel-container">
-                <!-- Card 1 - Project -->
-                <Card className="carousel-card w-full border-r-0 rounded-r-none bg-white" data-index="0">
-                    <CardHeader>
-                        <CardTitle>Project Overview</CardTitle>
-                        <CardDescription>Learn about our parking solution project</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex flex-row align-center">
-                        <p class="self-center">Welcome to RUMSpotWatch! This project aims to revolutionize campus parking by providing real-time parking spot availability and smart parking solutions for students and faculty. Our innovative approach combines IoT sensors, mobile technology, and data analytics to create a seamless parking experience.</p>
-                        <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="align-top w-54 px-5"/>
-                    </CardContent>
-                </Card>
+                    <!-- Card 3 - Goal -->
+                    <Card className="carousel-card w-full border-r-0 bg-white" data-index="2">
+                        <CardHeader>
+                            <CardTitle>Our Goal</CardTitle>
+                            <CardDescription>What we aim to achieve with this project</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                            <p class="text-sm sm:text-base leading-relaxed">Our goal is to create an intelligent parking management system that provides real-time parking availability, reduces search time, optimizes space utilization, and improves the overall campus experience. We aim to reduce parking search time by 80% and increase parking efficiency by 40%.</p>
+                            <img src="https://placehold.co/600x400" alt="Project Goals" class="w-32 sm:w-40 md:w-54 flex-shrink-0"/>
+                        </CardContent>
+                    </Card>
 
-                <!-- Card 2 - Problem -->
-                <Card className="carousel-card w-full border-r-0 bg-white" data-index="1">
-                    <CardHeader>
-                        <CardTitle>The Problem</CardTitle>
-                        <CardDescription>Understanding the parking challenges on campus</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex flex-row align-center">
-                        <p class="self-center">Campus parking is a significant challenge for students and faculty. Limited parking spaces, lack of real-time availability information, and inefficient space utilization lead to frustration, wasted time, and increased traffic congestion. Students often spend 15-20 minutes searching for parking spots, causing them to be late for classes.</p>
-                        <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="align-top w-54 px-5"/>
-                    </CardContent>
-                </Card>
-
-                <!-- Card 3 - Goal -->
-                <Card className="carousel-card w-full border-r-0 bg-white" data-index="2">
-                    <CardHeader>
-                        <CardTitle>Our Goal</CardTitle>
-                        <CardDescription>What we aim to achieve with this project</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex flex-row align-center">
-                        <p class="self-center">Our goal is to create an intelligent parking management system that provides real-time parking availability, reduces search time, optimizes space utilization, and improves the overall campus experience. We aim to reduce parking search time by 80% and increase parking efficiency by 40%.</p>
-                        <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="align-top w-54 px-5"/>
-                    </CardContent>
-                </Card>
-
-                <!-- Card 4 - Solution -->
-                <Card className="carousel-card w-full border-r-0 bg-white" data-index="3">
-                    <CardHeader>
-                        <CardTitle>The Solution</CardTitle>
-                        <CardDescription>How we're solving the parking problem</CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex flex-row align-center">
-                        <p class="self-center">RUMSpotWatch uses IoT sensors to detect parking space occupancy in real-time. Our mobile app provides live updates on available spots, allows users to reserve parking spaces, and offers navigation to the nearest available spot. The system includes predictive analytics to forecast parking patterns and optimize space allocation.</p>
-                        <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="align-top w-54 px-5"/>
-                    </CardContent>
-                </Card>
+                    <!-- Card 4 - Solution -->
+                    <Card className="carousel-card w-full border-r-0 bg-white" data-index="3">
+                        <CardHeader>
+                            <CardTitle>The Solution</CardTitle>
+                            <CardDescription>How we're solving the parking problem</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                            <p class="text-sm sm:text-base leading-relaxed">RUMSpotWatch uses IoT sensors to detect parking space occupancy in real-time. Our mobile app provides live updates on available spots, allows users to reserve parking spaces, and offers navigation to the nearest available spot. The system includes predictive analytics to forecast parking patterns and optimize space allocation.</p>
+                            <img src="https://placehold.co/600x400" alt="Technology Solution" class="w-32 sm:w-40 md:w-54 flex-shrink-0"/>
+                        </CardContent>
+                    </Card>
+                </div>
             </div>
+                    
         </div>
-                
     </div>
-
 
 </Layout>
 
@@ -107,10 +108,28 @@ import {
     }
 
     .carousel-viewport {
-        height: 303px; 
+        height: 380px; 
         overflow: hidden;
-        position: relative;
+        position: sticky;
         border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+        .carousel-viewport {
+            height: 380px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .carousel-viewport {
+            height: 420px;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .carousel-viewport {
+            height: 400px;
+        }
     }
 
     .carousel-container {
@@ -122,11 +141,29 @@ import {
 
     .carousel-card {
         flex-shrink: 0;
-        height: 300px; 
+        height: 380px; 
         display: flex;
         flex-direction: column;
         opacity: 0.8;
         padding-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+        .carousel-card {
+            height: 380px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .carousel-card {
+            height: 420px;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .carousel-card {
+            height: 400px;
+        }
     }
 
     .carousel-card.active {
@@ -161,7 +198,29 @@ import {
         const carouselCards = document.querySelectorAll('.carousel-card');
         
         let currentIndex = 0;
-        const cardHeight = 300; // Height of each card in pixels
+        
+        // Get responsive card height - 3 sizes for different devices
+        function getCardHeight() {
+            if (window.innerWidth <= 768) {
+                return 380; // Mobile/Phone
+            } else if (window.innerWidth <= 1024) {
+                return 420; // Tablet Horizontal
+            } else {
+                return 400; // Desktop
+            }
+        }
+
+        let cardHeight = getCardHeight();
+
+        // Update card height on window resize
+        window.addEventListener('resize', function() {
+            cardHeight = getCardHeight();
+            // Re-apply current position with new height
+            if (carouselContainer) {
+                const translateY = -currentIndex * cardHeight;
+                carouselContainer.style.transform = `translateY(${translateY}px)`;
+            }
+        });
 
         // Set initial state
         if (buttons[0]) {
