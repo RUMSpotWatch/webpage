@@ -1,74 +1,89 @@
 ---
 import Layout from "../layout/Layout.astro";
-
 import FormField from "../components/ui/form_field";
 ---
 
-<Layout title="About RUMSpotWatch" class="flex">
+<Layout title="About RUMSpotWatch" class="flex w-full min-h-screen">
   <div
-    class="flex flex-col flex-wrap items-center gap-1 my-10 mx-20 p-10 w-1/2 mx-auto border-solid border-t-4 border-l-4
-    border-b-8 border-r-8 rounded-lg shadow-2xl shadow-amber-300"
+    class="flex justify-center items-center w-full px-3 sm:px-6 lg:px-8 min-h-screen"
   >
-    <h1 class="mb-5 text-2xl text-center text-truncate">
-      Have any questions or feedback? Contact us!
-    </h1>
+    <div
+      class="flex flex-col items-center gap-3 sm:gap-4 my-6 sm:my-10 p-4 sm:p-6 lg:p-10 border-solid border-t-4 border-l-4 border-b-8 border-r-8 border-black rounded-lg shadow-2xl shadow-amber-300 w-full max-w-sm sm:max-w-lg lg:max-w-2xl mx-auto"
+    >
+      <h1
+        class="mb-4 sm:mb-5 text-lg sm:text-xl lg:text-2xl text-center leading-tight"
+      >
+        Have any questions or feedback? Contact us!
+      </h1>
 
-    <div class="flex flex-row items center gap-5 p-2">
-      <FormField
-        placeholder="First Name"
-        type="text"
-        inputClassName="w-xs required"
-        name="full_name"
-      />
-      <FormField
-        placeholder="Last Name"
-        type="text"
-        inputClassName="w-xs required"
-        name="full_name"
+      <div
+        class="flex flex-col sm:flex-row items-center gap-3 sm:gap-5 w-full max-w-md"
+      >
+        <div class="w-full">
+          <FormField
+            placeholder="First Name"
+            type="text"
+            inputClassName="w-full required"
+            name="first_name"
+          />
+        </div>
+        <div class="w-full">
+          <FormField
+            placeholder="Last Name"
+            type="text"
+            inputClassName="w-full required"
+            name="last_name"
+          />
+        </div>
+      </div>
+
+      <div class="w-full max-w-md">
+        <FormField
+          placeholder="Email address"
+          type="email"
+          inputClassName="w-full required"
+          name="email"
+        />
+      </div>
+      <div class="w-full max-w-md">
+        <FormField
+          placeholder="Subject"
+          type="text"
+          inputClassName="w-full"
+          name="subject"
+        />
+      </div>
+      <div class="flex flex-col w-full max-w-md">
+        <label for="message" class="mb-2 mt-2 text-sm sm:text-base"
+          >Message</label
+        >
+        <textarea
+          name="message"
+          id="message"
+          class="w-full p-2 h-24 sm:h-28 border-3 border-black text-black rounded-md bg-[#FFFBE9] resize-none"
+          spellcheck="true"
+          required></textarea>
+      </div>
+
+      <input
+        type="submit"
+        value="Submit"
+        class="w-full sm:w-48 mt-6 sm:mt-12 text-center font-semibold hover:bg-green-500 border-solid border-t-2 border-l-2 border-b-6 border-r-6 border-black rounded-md text-black py-3 px-6 cursor-pointer"
       />
     </div>
-
-    <FormField
-      placeholder="Email address"
-      type="email"
-      inputClassName="w-2xl required"
-      name="email"
-    />
-    <FormField
-      placeholder="Subject"
-      type="text"
-      inputClassName="w-2xl"
-      name="subject"
-    />
-    <div class="flex flex-col">
-      <label for="message" class="mb-2 mt-2"> Message </label>
-      <textarea
-        name="message"
-        id="message"
-        class="w-2xl p-2 h-26 border-3 border-solid text-black rounded-md bg-[#FFFBE9]"
-        spellcheck="true"
-        required></textarea>
-    </div>
-
-    <input
-      type="submit"
-      value="Submit"
-      class="w-45 mt-12 text-center hover:bg-green-500 bg-orange border-solid border-t-2 border-l-2
-      border-b-6 border-r-6 rounded-md bg-amber-100"
-    />
   </div>
-</Layout>
 
-<style>
-  div,
-  h1 {
-    font-family: "Geologica", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: bold;
-    font-style: italic;
-    font-variation-settings:
-      "slnt" -12,
-      "CRSV" 0,
-      "SHRP" 0;
-  }
-</style>
+  <style>
+    div,
+    h1 {
+      font-family: "Geologica", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: bold;
+      font-style: italic;
+      font-variation-settings:
+        "slnt" -12,
+        "CRSV" 0,
+        "SHRP" 0;
+    }
+  </style>
+</Layout>
