@@ -7,6 +7,7 @@ interface FormFieldProps extends React.ComponentProps<"div"> {
   type?: React.InputHTMLAttributes<HTMLInputElement>["type"];
   value?: string;
   name?: string;
+  required?: boolean;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
@@ -17,6 +18,7 @@ const FormField: React.FC<FormFieldProps> = ({
   value,
   className,
   name,
+  required,
   onChange,
   ...props
 }) => {
@@ -35,6 +37,7 @@ const FormField: React.FC<FormFieldProps> = ({
          name={name}
          onChange={onChange}
          className={cn("p-2 border-3 border-solid border-black text-black rounded-md bg-[#FFFBE9]", inputClassName)}
+         required={required}
        />
      </div>
     </div>
