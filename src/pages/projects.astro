@@ -1,8 +1,330 @@
 ---
 import Layout from "../layout/Layout.astro";
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+// Images
+
+import toyota_mobility_challenge_image from '@/assets/mobility_challenge.webp';
+import sw_logo from '@/assets/SW_Logo.png';
 ---
 
 <Layout title="RUMSpotWatch Project">
 
-	
+	<!-- Menu selector for project -->
+    <div class="flex flex-1 justify-start align-top">
+        <div class="flex flex-col-reverse lg:flex-row p-5 gap-2 sm:gap-4 lg:gap-x-15 items-center self-start align-middle ">
+
+            <div class="w-full lg:flex-1 lg:max-w-30 flex flex-col lg:items-center">
+                <!-- Left side - Navigation Menu -->
+                <div class="flex flex-row lg:flex-col gap-4 md:gap-12 bg-accent p-2 mt-3 md:mt-0 sm:p-3 rounded-lg
+                            border-2 border-r-4 border-b-4 w-full lg:w-auto justify-center lg:justify-start overflow-x-auto"> 
+                    <Button className="bt flex-shrink-0 text-xs sm:text-sm lg:text-base px-2 sm:px-4 py-1 sm:py-2" data-section="project"> Project </Button>
+                    <Button className="bt flex-shrink-0 text-xs sm:text-sm lg:text-base px-2 sm:px-4 py-1 sm:py-2" data-section="problem"> Problem </Button>
+                    <Button className="bt flex-shrink-0 text-xs sm:text-sm lg:text-base px-2 sm:px-4 py-1 sm:py-2" data-section="goal"> Goal </Button>
+                    <Button className="bt flex-shrink-0 text-xs sm:text-sm lg:text-base px-2 sm:px-4 py-1 sm:py-2" data-section="solution"> Solution </Button>
+                </div>
+
+
+            </div>
+                <!-- Right side - Carousel Container -->
+            <div class="w-full lg:flex-1 carousel-viewport">
+                <div id="carousel-container" class="carousel-container">
+                    <!-- Card 1 - Project -->
+                    <Card className="carousel-card w-full rounded-r-none bg-white" data-index="0">
+                        <CardHeader>
+                            <CardTitle className="text-xl">Project Overview</CardTitle>
+                            <CardDescription className="text-md font-semibold">Our parking solution project</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-col flex-1 md:flex-row items-center md:items-start gap-4">
+                            <p class="text-sm sm:text-base leading-relaxed pr-4">The RUMSpotWatch was born as a proposal for the Toyota Mobility challenge as initiative aims to improve parking management and user experience, addressing the daily challenges faced by students.</p>
+                            <div class="flex flex-1 h-full w-full align-top items-center md:items-start image-container-min-width">
+                                <img src={toyota_mobility_challenge_image.src} alt="Project Goals" class="w-full flex-shrink-0"/>
+                            </div>
+                          
+                        </CardContent>
+                    </Card>
+
+                    <!-- Card 2 - Problem -->
+                    <Card className="carousel-card w-full rounded-r-none bg-white" data-index="1">
+                        <CardHeader>
+                            <CardTitle className="text-xl">The Problem</CardTitle>
+                            <CardDescription className="text-md font-semibold">Parking challenges on campus</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-col flex-1 md:flex-row items-center md:items-start gap-4">
+                            <p class="text-sm sm:text-base leading-relaxed pr-4">Campus parking is a significant challenge for students and faculty. Limited parking spaces, lack of real-time availability information, and inefficient space utilization lead to frustration, wasted time, and increased traffic congestion. Students often spend 15-20 minutes searching for parking spots, causing them to be late for classes.</p>
+                            <div class="flex flex-1 h-full w-full align-top items-center md:items-start image-container-min-width">
+                                <img src="https://placehold.co/600x400" alt="Parking Problem" class="w-full flex-shrink-0"/>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <!-- Card 3 - Goal -->
+                    <Card className="carousel-card w-full rounded-r-none bg-white" data-index="2">
+                        <CardHeader>
+                            <CardTitle className="text-xl">Our Goal</CardTitle>
+                            <CardDescription className="text-md font-semibold">What we aim to achieve with this project</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-col flex-1 md:flex-row items-center md:items-start gap-4">
+                            <p class="text-sm sm:text-base leading-relaxed pr-4">Our goal is to create an intelligent parking management system that provides real-time parking availability, reduces search time, optimizes space utilization, and improves the overall campus experience. We aim to reduce parking search time by 80% and increase parking efficiency by 40%.</p>
+                            <div class="flex flex-1 h-full w-full align-top items-center md:items-start image-container-min-width">
+                                <img src="https://placehold.co/600x400" alt="RUMSpotWatch Logo" class="w-full flex-shrink-0"/>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    <!-- Card 4 - Solution -->
+                    <Card className="carousel-card w-full rounded-r-none bg-white" data-index="3">
+                        <CardHeader>
+                            <CardTitle className="text-xl">The Solution</CardTitle>
+                            <CardDescription className="text-md font-semibold">How we're solving the parking problem</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex flex-col flex-1 md:flex-row items-center md:items-start gap-4">
+                            <p class="text-sm sm:text-base leading-relaxed pr-4">RUMSpotWatch uses IoT sensors to detect parking space occupancy in real-time. Our mobile app provides live updates on available spots, allows users to reserve parking spaces, and offers navigation to the nearest available spot. The system includes predictive analytics to forecast parking patterns and optimize space allocation.</p>
+                            <div class="flex flex-1 h-full w-full align-top items-center md:items-start image-container-min-width">
+                                <img src={sw_logo.src} alt="Technology Solution" class="w-full flex-shrink-0"/>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
+                    
+        </div>
+    </div>
+
 </Layout>
+
+<style>
+    .bt {
+        color: white;
+        font-family: "Geologica", sans-serif;
+        transition: all 0.2s ease;
+    }
+
+    .bt.active {
+        background-color: var(--secondary-color);
+        color: var(--accent-color);
+        transform: scale(1.05);
+    }
+
+    .bt:hover {
+        transform: translateY(-2px);
+    }
+
+    .carousel-viewport {
+        height: 450px; 
+        overflow: hidden;
+        position: sticky;
+        border-radius: 8px;
+        padding: 4px;
+    }
+
+    @media (max-width: 768px) {
+        .carousel-viewport {
+            height: 440px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .carousel-viewport {
+            height: 340px;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .carousel-viewport {
+            height: 330px;
+        }
+    }
+
+    .carousel-container {
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        height: 100%;
+    }
+
+    .carousel-card {
+        flex-shrink: 0;
+        height: 430px; 
+        display: flex;
+        flex-direction: column;
+        opacity: 0.8;
+        padding-bottom: 0;
+        margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+        .carousel-card {
+            height: 430px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .carousel-card {
+            height: 330px;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .carousel-card {
+            height: 320px;
+        }
+    }
+
+    .carousel-card.active {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .carousel-card .card-header {
+        flex-shrink: 0;
+    }
+
+    .carousel-card .card-content {
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .carousel-card .card-footer {
+        flex-shrink: 0;
+    }
+
+    /* Smooth spring animation */
+    .carousel-container.moving {
+        transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Custom minimum width for image containers */
+    .image-container-min-width {
+        max-width: 150px;
+        min-width: 130px;
+    }
+
+
+    @media (min-width: 768px) {
+        .image-container-min-width {
+            max-width: 225px;
+            min-width: 200px;
+        }
+    }
+    @media (min-width: 1024px) {
+        .image-container-min-width {
+            max-width: 255px;
+        }
+    }
+</style>
+
+<script>
+    // Wait for DOM to load
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.bt');
+        const carouselContainer = document.getElementById('carousel-container');
+        const carouselCards = document.querySelectorAll('.carousel-card');
+        
+        let currentIndex = 0;
+        
+        // Get responsive card height - 3 sizes for different devices
+        function getCardHeight() {
+            if (window.innerWidth <= 768) {
+                return 430 + 8; // Mobile/Phone + margin-bottom
+            } else if (window.innerWidth <= 1024) {
+                return 330 + 8; // Tablet Horizontal + margin-bottom
+            } else {
+                return 320 + 8; // Desktop + margin-bottom
+            }
+        }
+
+        let cardHeight = getCardHeight();
+
+        // Update card height on window resize
+        window.addEventListener('resize', function() {
+            cardHeight = getCardHeight();
+            // Re-apply current position with new height
+            if (carouselContainer) {
+                const translateY = -currentIndex * cardHeight;
+                carouselContainer.style.transform = `translateY(${translateY}px)`;
+            }
+        });
+
+        // Set initial state
+        if (buttons[0]) {
+            buttons[0].classList.add('active');
+        }
+        if (carouselCards[0]) {
+            carouselCards[0].classList.add('active');
+        }
+
+        // Button data mapping
+        const buttonToIndex = {
+            'project': 0,
+            'problem': 1,
+            'goal': 2,
+            'solution': 3
+        };
+
+        function moveToCard(targetIndex: number) {
+            if (targetIndex === currentIndex || !carouselContainer) return;
+
+            // Add moving class for enhanced animation
+            carouselContainer.classList.add('moving');
+            
+            // Calculate the transform value
+            const translateY = -targetIndex * cardHeight;
+            carouselContainer.style.transform = `translateY(${translateY}px)`;
+
+            // Update active card
+            carouselCards.forEach((card, index) => {
+                card.classList.toggle('active', index === targetIndex);
+            });
+
+            // Update current index
+            currentIndex = targetIndex;
+
+            // Remove moving class after animation
+            setTimeout(() => {
+                carouselContainer.classList.remove('moving');
+            }, 800);
+        }
+
+        // Add click handlers to buttons
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', function(event) {
+                const target = event.currentTarget as HTMLElement;
+                
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                if (target) {
+                    target.classList.add('active');
+                }
+
+                // Get the section and move to corresponding card
+                const section = target?.getAttribute('data-section') as string;
+                if (section && buttonToIndex.hasOwnProperty(section)) {
+                    const targetIndex = (buttonToIndex as any)[section];
+                    moveToCard(targetIndex);
+                }
+            });
+        });
+
+        // Optional: Add keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowUp' && currentIndex > 0) {
+                const newIndex = currentIndex - 1;
+                (buttons[newIndex] as HTMLElement)?.click();
+            } else if (event.key === 'ArrowDown' && currentIndex < carouselCards.length - 1) {
+                const newIndex = currentIndex + 1;
+                (buttons[newIndex] as HTMLElement)?.click();
+            }
+        });
+    });
+</script>

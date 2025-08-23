@@ -5,6 +5,17 @@ import { Button } from '@/components/ui/button'
 
 const currentPath = Astro.url.pathname;
 const baseUrl = import.meta.env.PROD ? '/webpage' : '';
+
+// Helper function to check if current path matches the target path
+function isActivePage(targetPath: string) {
+    if (targetPath === '/') {
+        // For home page, check exact match
+        return currentPath === '/' || currentPath === '/webpage/' || currentPath === '/webpage';
+    } else {
+        // For other pages, check if path includes the target
+        return currentPath.includes(targetPath);
+    }
+}
 ---
 
 <div class="navigation">
@@ -15,10 +26,10 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
         </div>
         
         <ol class="flex list-none p-0 m-0 items-center space-x-6 md:space-x-2 lg:space-x-12 xl:space-x-16 text-2xl md:text-lg sm:text-base sm:space-x-1">
-            <li><a href={`${baseUrl}/projects`} class={`nav-link ${currentPath.includes('/projects') ? 'active' : ''}`}>Project</a></li>
-            <li><a href={`${baseUrl}/contact`} class={`nav-link ${currentPath.includes('/contact') ? 'active' : ''}`}>Contact</a></li>
-            <li><a href={`${baseUrl}/faq`} class={`nav-link ${currentPath.includes('/faq') ? 'active' : ''}`}>FaQ</a></li>
-            <li><a href={`${baseUrl}/team`} class={`nav-link ${currentPath.includes('/team') ? 'active' : ''}`}>Team</a></li>
+            <li><a href={`${baseUrl}/projects`} class={`nav-link ${isActivePage('/projects') ? 'active' : ''}`}>Project</a></li>
+            <li><a href={`${baseUrl}/contact`} class={`nav-link ${isActivePage('/contact') ? 'active' : ''}`}>Contact</a></li>
+            <li><a href={`${baseUrl}/faq`} class={`nav-link ${isActivePage('/faq') ? 'active' : ''}`}>FaQ</a></li>
+            <li><a href={`${baseUrl}/team`} class={`nav-link ${isActivePage('/team') ? 'active' : ''}`}>Team</a></li>
         </ol>
     </div>
     <div class="mobile flex px-6">
@@ -27,7 +38,7 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
         </div>
 
         <Button id="mobile-menu-toggle" className="w-[40px] active:bg-[var(--accent-color)] transition-all duration-100">
-            <i id="menu-icon" class='bx bx-menu-wider'></i> 
+            <i id="menu-icon" class='bx bx-menu-wider text-white'></i> 
         </Button>
     </div>
 
@@ -35,16 +46,16 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
     <div id="mobile-menu-overlay" class="mobile-menu-overlay">
         <div id="mobile-menu" class="mobile-menu">
             <div class="mobile-menu-header">
-                <Button id="mobile-menu-close" className="w-[40px] bg-transparent hover:bg-[var(--accent-color)] transition-all duration-100">
-                    <i class='bx bx-x text-white text-2xl'></i>
+                <Button id="mobile-menu-close" className="w-[40px] bg-transparent hover:bg-[var(--accent-color)] text-white hover:text-black transition-all duration-100">
+                    <i class='bx bx-x text-2xl'></i>
                 </Button>
             </div>
             <nav class="mobile-menu-nav">
-                <a href={`${baseUrl}/`} class={`mobile-nav-link ${currentPath === '/' || currentPath === '/webpage/' ? 'active' : ''}`}>Home</a>
-                <a href={`${baseUrl}/projects`} class={`mobile-nav-link ${currentPath.includes('/projects') ? 'active' : ''}`}>Project</a>
-                <a href={`${baseUrl}/contact`} class={`mobile-nav-link ${currentPath.includes('/contact') ? 'active' : ''}`}>Contact</a>
-                <a href={`${baseUrl}/faq`} class={`mobile-nav-link ${currentPath.includes('/faq') ? 'active' : ''}`}>FaQ</a>
-                <a href={`${baseUrl}/team`} class={`mobile-nav-link ${currentPath.includes('/team') ? 'active' : ''}`}>Team</a>
+                <a href={`${baseUrl}/`} class={`mobile-nav-link ${isActivePage('/') ? 'active' : ''}`}>Home</a>
+                <a href={`${baseUrl}/projects`} class={`mobile-nav-link ${isActivePage('/projects') ? 'active' : ''}`}>Project</a>
+                <a href={`${baseUrl}/contact`} class={`mobile-nav-link ${isActivePage('/contact') ? 'active' : ''}`}>Contact</a>
+                <a href={`${baseUrl}/faq`} class={`mobile-nav-link ${isActivePage('/faq') ? 'active' : ''}`}>FaQ</a>
+                <a href={`${baseUrl}/team`} class={`mobile-nav-link ${isActivePage('/team') ? 'active' : ''}`}>Team</a>
             </nav>
         </div>
     </div>
@@ -131,7 +142,10 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
         font-weight: bold;
     }
 
-     .nav-link.active:hover {
+    .nav-link{
+        clip-path: polygon(35% 0%, 100% 0%, 90% 100%, 0% 100%);
+    }
+     .nav-link:hover {
         background-color: var(--secondary-accent);
         color: var(--secondary-color);
     }
