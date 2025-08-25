@@ -4,7 +4,11 @@ import Navigation from '../components/Navigation.astro';
 import "../styles/global.css";
 
 
-const baseUrl = import.meta.env.PROD ? '' : '';
+// Determine baseUrl based on deployment platform
+// GitHub Pages: '/webpage', Cloudflare Workers: '', Development: ''
+const baseUrl = import.meta.env.PROD 
+	? (import.meta.env.GITHUB_PAGES ? '/webpage' : '') 
+	: '';
 
 const { 
 	title, 
@@ -39,7 +43,7 @@ const {
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={new URL(ogImage, Astro.url.origin)} />
 		<title>{title}</title>
-	</head>
+	</head>z
 
 	<body class="flex flex-col min-h-screen">
 

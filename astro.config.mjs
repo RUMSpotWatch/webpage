@@ -5,7 +5,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 import react from '@astrojs/react';
 
-const baseUrl = import.meta.env.PROD ? '' : '';
+const baseUrl = import.meta.env.PROD 
+	? (import.meta.env.GITHUB_PAGES ? '/webpage' : '') 
+	: '';
 
 // https://astro.build/config
 export default defineConfig({

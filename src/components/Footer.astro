@@ -1,5 +1,7 @@
 ---
-const baseUrl = import.meta.env.PROD ? '' : '';
+const baseUrl = import.meta.env.PROD 
+	? (import.meta.env.GITHUB_PAGES ? '/webpage' : '') 
+	: '';
 ---
 
 
