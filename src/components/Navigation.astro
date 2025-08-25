@@ -4,7 +4,7 @@ import sw_logo from '@/assets/SW_Logo.png';
 import { Button } from '@/components/ui/button'
 
 const currentPath = Astro.url.pathname;
-const baseUrl = import.meta.env.PROD ? '/webpage' : '';
+const baseUrl = import.meta.env.PROD ? '' : '';
 
 // Helper function to check if current path matches the target path
 function isActivePage(targetPath: string) {
