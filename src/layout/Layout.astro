@@ -8,7 +8,8 @@ const baseUrl = import.meta.env.PROD ? '/webpage' : '';
 
 const { 
 	title, 
-	backgroundImage,   
+	backgroundImage,
+	backgroundImageMobile,
 	description = "Improving campus parking experiences.", // Default description
   	ogImage = `${baseUrl}/icon_512.png`, // Path to a default image in your /public folder
 } = Astro.props;
@@ -41,8 +42,9 @@ const {
 	</head>
 
 	<body class="flex flex-col min-h-screen">
-	
-		<main class={`bg-background-color flex-grow flex flex-col pb-5 h-full ${backgroundImage ? 'has-background-image' : ''}`} style={backgroundImage ? `background-image: url(${backgroundImage});` : ''}>
+
+		<main class={`bg-background-color flex-grow flex-col pb-5 h-full ${ (backgroundImageMobile || backgroundImage) ? 'has-background-image' : ''}`} 
+		style={`--bg-image: url(${backgroundImage}); --bg-image-mobile: url(${backgroundImageMobile || backgroundImage});`}>
 			<Navigation
 			transition:fade
 			transition:enter="transition duration-300 ease-in-out"
@@ -69,6 +71,15 @@ const {
 			background-attachment: fixed;
 			background-blend-mode: darken;
 			background-color: rgba(0, 0, 0, 0.6);
+			/* Default: use backgroundImage for all screens */
+			background-image: var(--bg-image);
+		}
+
+		/* Mobile: use backgroundImageMobile if available */
+		@media screen and (max-width: 764px) {
+			.bg-background-color.has-background-image {
+				background-image: var(--bg-image-mobile);
+			}
 		}
 
 		/* Ensure content is readable on background */
