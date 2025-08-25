@@ -43,7 +43,7 @@ const {
 
 	<body class="flex flex-col min-h-screen">
 
-		<main class={`bg-background-color flex-grow flex-col pb-5 h-full ${ (backgroundImageMobile || backgroundImage) ? 'has-background-image' : ''}`} 
+		<main class={`bg-background-color flex flex-grow flex-col pb-5 h-full ${ (backgroundImageMobile || backgroundImage) ? 'has-background-image' : ''}`} 
 		style={`--bg-image: url(${backgroundImage}); --bg-image-mobile: url(${backgroundImageMobile || backgroundImage});`}>
 			<Navigation
 			transition:fade
