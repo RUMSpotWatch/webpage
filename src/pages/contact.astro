@@ -1,6 +1,14 @@
 ---
 import Layout from "../layout/Layout.astro";
 import FormField from "../components/ui/form_field";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 ---
 
 <Layout title="About RUMSpotWatch" class="flex w-full min-h-screen">
@@ -9,89 +17,89 @@ import FormField from "../components/ui/form_field";
     action="https://api.web3forms.com/submit"
     method="POST"
   >
-    <input type="hidden" name="access_key" value="64479068-96b6-454d-b46a-d26c65b7ae72">
-    <input type="checkbox" name="botcheck" id="" style="display: none;">
+    <input
+      type="hidden"
+      name="access_key"
+      value="64479068-96b6-454d-b46a-d26c65b7ae72"
+    />
+    <input type="checkbox" name="botcheck" id="" style="display: none;" />
 
-    <div
-      class="flex flex-col items-center gap-3 sm:gap-4 my-6 sm:my-10 p-4 sm:p-6 lg:p-10 border-solid border-t-4 border-l-4 border-b-8 border-r-8 border-black rounded-lg shadow-2xl shadow-box w-full max-w-sm sm:max-w-lg lg:max-w-2xl mx-auto"
+    <Card
+      className="items-center gap-3 sm:gap-4 my-6 sm:my-10 p-4 sm:p-6 lg:p-10 -b-8 w-full max-w-sm sm:max-w-lg lg:max-w-2xl mx-auto bg-white"
     >
-      <h1
-        class="mb-4 sm:mb-5 text-lg sm:text-xl lg:text-2xl text-center leading-tight"
-      >
-        Have any questions or feedback? Contact us!
-      </h1>
+      <!-- Form Header -->
+      <CardTitle>
+        <h1
+          class="mb-4 sm:mb-5 text-lg sm:text-xl lg:text-2xl text-center leading-tight"
+        >
+          Have any questions or feedback? Contact us!
+        </h1>
+      </CardTitle>
 
+      <!-- First + Last Name -->
       <div
-        class="flex flex-col sm:flex-row items-center gap-3 sm:gap-5 w-full max-w-md"
+        class="flex flex-col justify-center sm:flex-row items-center gap-3 sm:gap-5 w-full max-w-md"
       >
-        <div class="w-full">
-          <FormField
-            placeholder="First Name"
+        <CardContent className="w-full">
+          <label for="first_name">First Name</label>
+          <input
+            class="w-full p-2 border-3 border-solid border-black text-black"
             type="text"
-            inputClassName="w-full"
-            name="First Name"
+            name="first_name"
             required
           />
-        </div>
-        <div class="w-full">
-          <FormField
-            placeholder="Last Name"
+        </CardContent>
+
+        <CardContent className="w-full">
+          <label for="last_name">First Name</label>
+          <input
+            class="w-full p-2 border-3 border-solid border-black text-black"
             type="text"
-            inputClassName="w-full"
-            name="Last Name"
+            name="last_name"
             required
           />
-        </div>
+        </CardContent>
       </div>
 
-      <div class="w-full max-w-md">
-        <FormField
-          placeholder="Email address"
-          type="email"
-          inputClassName="w-full"
-          name="email"
-          required
-        />
-      </div>
-      <div class="w-full max-w-md">
-        <FormField
-          placeholder="Subject"
-          type="text"
-          inputClassName="w-full"
-          name="subject"
-        />
-      </div>
-      <div class="flex flex-col w-full max-w-md">
+      <CardContent className="w-full max-w-md">
+        <div class="flex flex-col">
+          <label for="email">Email</label>
+          <input
+            class="p-2 border-3 border-solid border-black text-black"
+            type="email"
+            name="email"
+            required
+          />
+        </div>
+      </CardContent>
+
+      <CardContent className="w-full max-w-md">
+        <div class="flex flex-col">
+          <label for="subject">Subject</label>
+          <input
+            class="p-2 border-3 border-solid border-black text-black"
+            type="text"
+            name="subject"
+          />
+        </div>
+      </CardContent>
+
+      <CardContent className="flex flex-col w-full max-w-md">
         <label for="message" class="mb-2 mt-2 text-sm sm:text-base"
           >Message</label
         >
         <textarea
           name="message"
           id="message"
-          class="w-full p-2 h-24 sm:h-28 border-3 border-black text-black rounded-md bg-[#FFFBE9] resize-none"
+          class="w-full p-2 h-24 sm:h-28 border-3 border-black text-black rounded-md resize-none"
           spellcheck="true"
           required></textarea>
-      </div>
-
+      </CardContent>
       <input
         type="submit"
         value="Submit"
         class="w-full sm:w-48 mt-6 sm:mt-12 text-center font-semibold hover:bg-green-500 border-solid border-t-2 border-l-2 border-b-6 border-r-6 border-black rounded-md text-black py-3 px-6 cursor-pointer transition delay-100 duration-200 ease-in-out hover:-translate-y-1 hover:scale-100"
       />
-    </div>
+    </Card>
   </form>
-
-  <style>
-    div,
-    h1 {
-      font-family: "Geologica", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: bold;
-      font-style: italic;
-      font-variation-settings:
-        "slnt" -12,
-        "CRSV" 0,
-        "SHRP" 0;
-    }
-  </style>
 </Layout>
